@@ -1,5 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
+import { OrbitControls } from "@react-three/drei";
+import { Canvas } from '@react-three/fiber';
+import { Suspense } from 'react';
+import { Model } from '@/Shoe';
 
 function App() {
   return (
@@ -9,14 +13,16 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+       <p>no soft landing</p>
+       <Canvas>
+        <Suspense fallback={null}>
+        <OrbitControls/>
+<ambientLight intensity={0.5} />
+<directionalLight position={[-2,5,2]} intensity={1} />
+<pointLight position={[-5, 20, 10]} />
+<Model/>
+</Suspense>
+      </Canvas>
       </header>
     </div>
   );
